@@ -1,0 +1,141 @@
+.loading-spinner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  color: var(--color-primary-500);
+}
+
+/* Sizes */
+.loading-spinner--sm {
+  font-size: 16px;
+}
+
+.loading-spinner--md {
+  font-size: 24px;
+}
+
+.loading-spinner--lg {
+  font-size: 32px;
+}
+
+/* Spinner variant */
+.loading-spinner__svg {
+  width: 1em;
+  height: 1em;
+  animation: loading-spinner-spin 1s linear infinite;
+}
+
+.loading-spinner__circle {
+  opacity: 0.25;
+}
+
+@keyframes loading-spinner-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dots variant */
+.loading-spinner__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.loading-spinner__dots span {
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: loading-spinner-dots 1.4s ease-in-out infinite both;
+}
+
+.loading-spinner__dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-spinner__dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading-spinner-dots {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pulse variant */
+.loading-spinner__pulse {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: loading-spinner-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-spinner-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Text */
+.loading-spinner__text {
+  font-size: 0.5em;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Full page overlay */
+.loading-spinner--full-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-modal);
+}
+
+.loading-spinner__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-modal);
+  animation: loading-spinner-overlay-fade-in var(--transition-base);
+}
+
+@keyframes loading-spinner-overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

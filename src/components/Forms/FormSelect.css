@@ -1,0 +1,281 @@
+.form-select {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  position: relative;
+}
+
+.form-select__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.form-select__required {
+  color: var(--color-error-500);
+  margin-left: var(--spacing-xs);
+}
+
+.form-select__wrapper {
+  position: relative;
+}
+
+.form-select__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-base);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+}
+
+.form-select__trigger:hover:not(:disabled) {
+  border-color: var(--border-focus);
+}
+
+.form-select__trigger:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.form-select__trigger:disabled {
+  background-color: var(--bg-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-select--error .form-select__trigger {
+  border-color: var(--border-error);
+}
+
+.form-select--error .form-select__trigger:focus {
+  border-color: var(--border-error);
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.form-select--open .form-select__trigger {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.form-select__value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.form-select__value--placeholder {
+  color: var(--text-secondary);
+}
+
+.form-select__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.form-select__clear:hover {
+  background-color: var(--bg-paper);
+  color: var(--text-primary);
+}
+
+.form-select__arrow {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: transform var(--transition-base);
+}
+
+.form-select--open .form-select__arrow {
+  transform: rotate(180deg);
+}
+
+.form-select__dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-xs));
+  left: 0;
+  right: 0;
+  z-index: var(--z-dropdown);
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: form-select-dropdown-in var(--transition-base);
+}
+
+@keyframes form-select-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-select__search {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.form-select__search-input {
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-paper);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.form-select__search-input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.form-select__options {
+  overflow-y: auto;
+  max-height: 250px;
+  padding: var(--spacing-xs);
+}
+
+.form-select__group-label {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-select__option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-base);
+}
+
+.form-select__option:hover:not(:disabled):not(.form-select__option--disabled) {
+  background-color: var(--bg-paper);
+}
+
+.form-select__option:focus {
+  outline: none;
+  background-color: var(--bg-paper);
+  box-shadow: 0 0 0 2px var(--border-focus);
+}
+
+.form-select__option--selected {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-select__option--selected:hover:not(:disabled) {
+  background-color: var(--color-primary-100);
+}
+
+.form-select__option--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-select__checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+.form-select__option--selected .form-select__checkbox {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-white);
+}
+
+.form-select__empty {
+  padding: var(--spacing-base);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.form-select__error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error-600);
+  line-height: 1.5;
+}
+
+.form-select__helper {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Scrollbar styling */
+.form-select__options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-select__options::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+
+.form-select__options::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+}
+
+.form-select__options::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+

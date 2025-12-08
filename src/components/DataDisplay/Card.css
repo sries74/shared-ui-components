@@ -1,0 +1,116 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.card--default {
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.card--outlined {
+  border: 1px solid var(--border-default);
+  box-shadow: none;
+}
+
+.card--elevated {
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+/* Padding variants */
+.card--padding-none .card__body {
+  padding: 0;
+}
+
+.card--padding-none .card__header,
+.card--padding-none .card__footer {
+  padding: 0;
+}
+
+.card--padding-sm .card__body {
+  padding: var(--spacing-sm);
+}
+
+.card--padding-sm .card__header,
+.card--padding-sm .card__footer {
+  padding: var(--spacing-sm);
+}
+
+.card--padding-md .card__body {
+  padding: var(--spacing-base);
+}
+
+.card--padding-md .card__header,
+.card--padding-md .card__footer {
+  padding: var(--spacing-base);
+}
+
+.card--padding-lg .card__body {
+  padding: var(--spacing-lg);
+}
+
+.card--padding-lg .card__header,
+.card--padding-lg .card__footer {
+  padding: var(--spacing-lg);
+}
+
+/* Hoverable */
+.card--hoverable:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card--hoverable.card--outlined:hover {
+  border-color: var(--border-focus);
+}
+
+/* Clickable */
+.card--clickable {
+  cursor: pointer;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.card--clickable:focus {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-lg);
+}
+
+.card--clickable:active {
+  transform: translateY(0);
+}
+
+.card--clickable.card--hoverable:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card__header {
+  border-bottom: 1px solid var(--border-default);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.card__body {
+  flex: 1;
+  color: var(--text-primary);
+}
+
+.card__footer {
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+

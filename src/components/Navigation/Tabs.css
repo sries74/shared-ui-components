@@ -1,0 +1,200 @@
+.tabs {
+  display: flex;
+  width: 100%;
+}
+
+.tabs--horizontal {
+  flex-direction: column;
+}
+
+.tabs--vertical {
+  flex-direction: row;
+  gap: var(--spacing-lg);
+}
+
+.tabs__list {
+  display: flex;
+  gap: var(--spacing-xs);
+  border-bottom: 1px solid var(--border-default);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs--vertical .tabs__list {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--border-default);
+  min-width: 200px;
+  align-items: stretch;
+}
+
+.tabs__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-base);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  position: relative;
+}
+
+.tabs--vertical .tabs__tab {
+  border-bottom: none;
+  border-right: 2px solid transparent;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.tabs__tab:hover:not(:disabled):not(.tabs__tab--disabled) {
+  color: var(--text-primary);
+  background-color: var(--bg-paper);
+}
+
+.tabs__tab:focus {
+  outline: 2px solid var(--border-focus);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
+.tabs__tab--active {
+  color: var(--color-primary-600);
+  border-bottom-color: var(--color-primary-600);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tabs--vertical .tabs__tab--active {
+  border-bottom-color: transparent;
+  border-right-color: var(--color-primary-600);
+}
+
+.tabs__tab--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tabs__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Default variant */
+.tabs--default .tabs__tab--active {
+  color: var(--color-primary-600);
+  border-bottom-color: var(--color-primary-600);
+}
+
+.tabs--default.tabs--vertical .tabs__tab--active {
+  border-right-color: var(--color-primary-600);
+}
+
+/* Pills variant */
+.tabs--pills .tabs__list {
+  border-bottom: none;
+  gap: var(--spacing-xs);
+}
+
+.tabs--pills .tabs__tab {
+  border-bottom: none;
+  border-radius: var(--radius-full);
+  padding: var(--spacing-xs) var(--spacing-base);
+}
+
+.tabs--pills .tabs__tab--active {
+  background-color: var(--color-primary-500);
+  color: var(--color-white);
+  border-bottom-color: transparent;
+}
+
+.tabs--pills.tabs--vertical .tabs__tab--active {
+  border-right-color: transparent;
+}
+
+.tabs--pills .tabs__tab:hover:not(:disabled):not(.tabs__tab--disabled):not(.tabs__tab--active) {
+  background-color: var(--bg-paper);
+}
+
+/* Underline variant */
+.tabs--underline .tabs__list {
+  border-bottom: 2px solid var(--border-default);
+}
+
+.tabs--underline .tabs__tab {
+  border-bottom: none;
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: -2px;
+}
+
+.tabs--underline .tabs__tab--active {
+  border-bottom: 2px solid var(--color-primary-600);
+  padding-bottom: calc(var(--spacing-sm) - 2px);
+}
+
+.tabs--underline.tabs--vertical .tabs__list {
+  border-right: 2px solid var(--border-default);
+  border-bottom: none;
+}
+
+.tabs--underline.tabs--vertical .tabs__tab {
+  border-right: none;
+  padding-right: var(--spacing-sm);
+  margin-right: -2px;
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: 0;
+}
+
+.tabs--underline.tabs--vertical .tabs__tab--active {
+  border-bottom: none;
+  border-right: 2px solid var(--color-primary-600);
+  padding-right: calc(var(--spacing-sm) - 2px);
+  padding-bottom: var(--spacing-sm);
+}
+
+.tabs__panel {
+  padding: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+.tabs--vertical .tabs__panel {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabs--vertical {
+    flex-direction: column;
+  }
+
+  .tabs--vertical .tabs__list {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--border-default);
+    min-width: auto;
+    overflow-x: auto;
+  }
+
+  .tabs--vertical .tabs__tab {
+    border-right: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tabs--vertical .tabs__tab--active {
+    border-right-color: transparent;
+    border-bottom-color: var(--color-primary-600);
+  }
+}
+

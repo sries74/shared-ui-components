@@ -1,0 +1,129 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+/* Sizes */
+.badge--sm {
+  padding: 2px var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  min-height: 18px;
+}
+
+.badge--md {
+  padding: 4px var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  min-height: 22px;
+}
+
+.badge--lg {
+  padding: 6px var(--spacing-md);
+  font-size: var(--font-size-sm);
+  min-height: 26px;
+}
+
+/* Variants */
+.badge--default {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+}
+
+.badge--primary {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-800);
+}
+
+.badge--success {
+  background-color: var(--color-success-100);
+  color: var(--color-success-800);
+}
+
+.badge--warning {
+  background-color: var(--color-warning-100);
+  color: var(--color-warning-800);
+}
+
+.badge--error {
+  background-color: var(--color-error-100);
+  color: var(--color-error-800);
+}
+
+.badge--info {
+  background-color: var(--color-info-100);
+  color: var(--color-info-800);
+}
+
+/* Dot variant */
+.badge--dot {
+  padding: 0;
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 50%;
+}
+
+.badge--dot.badge--sm {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+.badge--dot.badge--lg {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.badge__dot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.badge__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin-left: calc(var(--spacing-xs) * -1);
+  margin-right: calc(var(--spacing-xs) * -1);
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: currentColor;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.badge__remove:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.badge__remove:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  opacity: 1;
+}
+

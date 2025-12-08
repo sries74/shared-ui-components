@@ -1,0 +1,119 @@
+.property-panel {
+  width: 300px;
+  background-color: var(--bg-default);
+  border-left: 1px solid var(--border-default);
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+}
+
+.property-panel__header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-default);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-default);
+  z-index: 1;
+}
+
+.property-panel__header h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.property-panel__content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.property-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.property-control__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.property-control__input {
+  padding: var(--spacing-sm) var(--spacing-base);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.property-control__input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.property-control__input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-primary-500);
+}
+
+.property-control__input[type="number"] {
+  width: 100%;
+}
+
+.property-control__color-wrapper {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.property-control__color {
+  width: 50px;
+  height: 40px;
+  padding: 2px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: none;
+}
+
+.property-control__color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.property-control__color::-webkit-color-swatch {
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar */
+.property-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.property-panel::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+
+.property-panel::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+}
+
+.property-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
